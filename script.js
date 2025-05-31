@@ -158,7 +158,7 @@ console.log(webbtn);
 
 webbtn.forEach(element => {
     element.addEventListener('click', () => {
-        console.log('clicked');
+        // document.getElementById("#web").click();
         grid.textContent = ''
         webbtn.forEach(btn => {
             btn.style.backgroundColor = ""; // or use original color if needed
@@ -182,5 +182,7 @@ webbtn.forEach(element => {
         }
     })
 })
+
+document.getElementById("web").click();
 
 
