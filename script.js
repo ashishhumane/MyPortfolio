@@ -186,3 +186,23 @@ webbtn.forEach(element => {
 document.getElementById("web").click();
 
 
+// function sendEmail() {
+//   const email = document.querySelector('.emailmsg').value 
+//   const subject = document.querySelector('.textmsg').value;
+//   const body = document.querySelector('.myext').value;
+
+//   const mailtoLink = `mailto:${"ashishhumane2003@gmail.com"}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+//   window.location.href = mailtoLink;
+
+//   // Prevent actual form submission
+//   return false;
+// }
+
+// form = document.querySelector('form')
+// form.addEventListener('submit' , (e) => {
+//     e.preventDefault()
+//     sendEmail()
+// })
+
+
