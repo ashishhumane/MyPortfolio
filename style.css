@@ -350,8 +350,8 @@ nav {
     background-color: var(--color-purple);
 }
 
-.project-image .image-placeholder i {
-    font-size: 50px;
+img {
+    width: 100%;     
 }
 
 .project-info {

@@ -1,194 +1,186 @@
-// Mobile Navigation Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
-const navLinks = document.querySelectorAll('.nav-link');
-
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+document.querySelector('.hamburger').addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('active');
+    this.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a link
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
-
-// Smooth scrolling for navigation links
-navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            const offsetTop = targetSection.offsetTop - 60; // Account for fixed navbar
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Navbar scroll effect
-const navbar = document.querySelector('.navbar');
-let lastScrollY = window.scrollY;
-
-window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    
-    if (currentScrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
-    } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+const webProjects = [
+    {
+        title: "E-commerce Platform",
+        description: "A simple frontend only web application where vendor can sell their farm product D2C.",
+        technologies: ["HTML", "CSS", "JavaScript"],
+        image: "/MyPortfolio/images/E-commerce_platfom.png", // path to your project thumbnail
+        link: "https://farm2cart.netlify.app/",
+        github: "https://github.com/ashishhumane/GroceryStore.git",
+    },
+    {
+        title: "To-Do List",
+        description: "A responsive to-do list with local storage support. Users can add, edit, and delete tasks.",
+        technologies: ["React", "CSS", "LocalStorage"],
+        image: "images/todo-app.png",
+        link: "https://yourusername.github.io/todo-list/",
+        github: "https://github.com/yourusername/todo-list",
+    },
+    {
+        title: "Voice Assistant",
+        description: "A simple voice assistant built using JavaScript and the Web Speech API.The assistant listens to the user's voice, processes the input, and speaks back a response.",
+        technologies: ["HTML", "CSS", "JavaScript", "API"],
+        image: "/MyPortfolio/images/voice_assistant.jpg", // path to your project thumbnail
+        link: "https://my-voiceassistant.netlify.app/",
+        github: "https://github.com/ashishhumane/GroceryStore.git",
     }
-    
-    lastScrollY = currentScrollY;
-});
+];
 
-// Active navigation link highlighting
-const sections = document.querySelectorAll('section[id]');
 
-const highlightNavLink = () => {
-    const scrollPosition = window.scrollY + 100;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            if (navLink) {
-                navLink.classList.add('active');
-            }
-        }
-    });
-};
-
-window.addEventListener('scroll', highlightNavLink);
-
-// Project card hover effects and animations
-const projectCards = document.querySelectorAll('.project-card');
-
-// Intersection Observer for scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Initially hide cards for animation
-projectCards.forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-    observer.observe(card);
-});
-
-// Add click tracking for project links
-const projectLinks = document.querySelectorAll('.project-link');
-
-projectLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        // Add a subtle click animation
-        link.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            link.style.transform = 'scale(1)';
-        }, 150);
-        
-        // Here you would typically handle the actual navigation
-        console.log('Project link clicked:', link.textContent);
-    });
-});
-
-// Parallax effect for hero section
-const hero = document.querySelector('.hero');
-
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
-    
-    if (hero) {
-        hero.style.transform = `translateY(${rate}px)`;
+const androidProjects = [
+    {
+        title: "Fitness Tracker App",
+        description: "An Android app to track daily fitness activities such as steps, calories burned, and water intake. Includes Google Fit integration.",
+        technologies: ["Kotlin", "XML", "Room DB", "Google Fit API"],
+        image: "/images/fitness-tracker.png", // path to your project thumbnail
+        link: "https://play.google.com/store/apps/details?id=yourappid", // demo or Play Store link
+        github: "https://github.com/yourusername/fitness-tracker-app"
+    },
+    {
+        title: "Expense Manager",
+        description: "Helps users manage their daily expenses with category-wise tracking, monthly reports, and a simple UI.",
+        technologies: ["Java", "XML", "SQLite", "MPAndroidChart"],
+        image: "/images/expense-manager.png",
+        link: "https://yourusername.github.io/expense-manager-demo/", // or APK download/demo
+        github: "https://github.com/yourusername/expense-manager"
+    },
+    {
+        title: "Weather App",
+        description: "Displays current weather conditions using OpenWeather API. Features location-based data and clean UI.",
+        technologies: ["Kotlin", "Retrofit", "MVVM", "LiveData"],
+        image: "/images/weather-app.png",
+        link: "https://yourusername.github.io/weather-app-demo/", // demo or APK link
+        github: "https://github.com/yourusername/weather-app"
     }
-});
+];
 
-// Tech tag hover effects
-const techTags = document.querySelectorAll('.tech-tag');
-
-techTags.forEach(tag => {
-    tag.addEventListener('mouseenter', () => {
-        tag.style.transform = 'translateY(-2px)';
-    });
-    
-    tag.addEventListener('mouseleave', () => {
-        tag.style.transform = 'translateY(0)';
-    });
-});
-
-// Keyboard navigation support
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+const designProjects = [
+    {
+        title: "Mobile Banking App UI",
+        description: "A clean and modern UI design for a mobile banking application, focusing on user-friendly navigation and security.",
+        technologies: ["Figma", "UI/UX", "Design System"],
+        image: "/images/mobile-banking-ui.png",
+        link: "https://www.figma.com/file/yourfileid/banking-app-design", // Live Figma or Behance link
+        github: "", // Leave empty or null for design-only projects
+    },
+    {
+        title: "E-commerce App UI Kit",
+        description: "A design system and UI kit for an e-commerce app, including product pages, cart, and checkout flow.",
+        technologies: ["Adobe XD", "Design System", "Prototyping"],
+        image: "/images/ecommerce-ui-kit.png",
+        link: "https://www.behance.net/gallery/yourprojectid/Ecommerce-App-Design",
+        github: ""
+    },
+    {
+        title: "Portfolio Website Design",
+        description: "A responsive, modern portfolio website mockup tailored for developers and creatives, designed for easy customization.",
+        technologies: ["Figma", "Grid Systems", "Responsive Design"],
+        image: "/images/portfolio-design.png",
+        link: "https://www.figma.com/file/yourfileid/portfolio-website",
+        github: ""
     }
-});
+];
+grid = document.querySelector('.projects-grid')
+console.log(grid);
 
-// Performance optimization: Throttle scroll events
-function throttle(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
+function rendorProjects(type, color) {
+    // grid.textContent = ''
+    color.style.backgroundColor = "#0e050f";
+
+    type.forEach(project => {
+        color.style.backgroundColor = "#341948";
+        projectCard = document.createElement('div')
+        projectCard.className = "project-card"
+
+        projectImage = document.createElement('div')
+        projectImage.className = 'project-image'
+
+        imageplaceholder = document.createElement('div')
+        imageplaceholder.className = 'image-placeholder'
+
+        img = document.createElement('img')
+        img.src = project.image
+
+        // imageplaceholder.appendChild(img)
+        projectImage.appendChild(imageplaceholder.appendChild(img))
+
+        projectInfo = document.createElement('div')
+        projectInfo.className = 'project-info'
+
+        projectHeading = document.createElement('h3')
+        projectHeading.textContent = project.title
+        projDiscription = document.createElement('p')
+
+
+        projDiscription.textContent = project.description
+        projectTags = document.createElement('div')
+        projectTags.className = 'project-tags'
+
+
+        project.technologies.forEach(element => {
+            span = document.createElement('span')
+            span.textContent = element;
+            projectTags.appendChild(span)
+        });
+        projectLinks = document.createElement('div')
+        projectLinks.className = 'project-links';
+        link1 = document.createElement('a')
+        link1.className = "btn small-btn"
+        link2 = document.createElement('a')
+        link2.className = "btn small-btn secondary-btn"
+
+        link1.textContent = 'view project'
+        link2.textContent = 'source code'
+
+        link1.href = project.link
+        link2.href = project.github
+
+        projectLinks.appendChild(link1)
+        projectLinks.appendChild(link2)
+
+        grid.appendChild(projectCard)
+        projectCard.appendChild(projectImage)
+        projectCard.appendChild(projectInfo)
+        projectInfo.appendChild(projectHeading)
+        projectInfo.appendChild(projDiscription)
+        projectInfo.appendChild(projectTags)
+        projectInfo.appendChild(projectLinks)
+    })
 }
 
-// Apply throttling to scroll events
-const throttledScrollHandler = throttle(() => {
-    highlightNavLink();
-}, 100);
 
-window.removeEventListener('scroll', highlightNavLink);
-window.addEventListener('scroll', throttledScrollHandler);
+const webbtn = document.querySelectorAll('.filter-btn')
+console.log(webbtn);
 
-// Add loading state management
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-    
-    // Trigger initial animations
-    setTimeout(() => {
-        projectCards.forEach(card => {
-            observer.observe(card);
+webbtn.forEach(element => {
+    element.addEventListener('click', () => {
+        console.log('clicked');
+        grid.textContent = ''
+        webbtn.forEach(btn => {
+            btn.style.backgroundColor = ""; // or use original color if needed
         });
-    }, 500);
-});
 
-// Handle resize events
-window.addEventListener('resize', () => {
-    // Close mobile menu on resize
-    if (window.innerWidth > 768) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    }
-});
+        if (element.id === "web") {
+            rendorProjects(webProjects, element)
+            
+        } else if (element.id === "mobile") {
+            rendorProjects(androidProjects, element)
+            
+        } else if (element.id === "design") {
+            rendorProjects(designProjects, element)
+            
+        }else if(element.id === "all"){
+            rendorProjects(webProjects, element)
+            rendorProjects(androidProjects, element)
+            rendorProjects(designProjects, element)
+        }else{
+             grid.textContent = 'no projects available'
+        }
+    })
+})
+
+
