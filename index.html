@@ -7,6 +7,8 @@
     <title>Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
 </head>
 
@@ -43,7 +45,25 @@
                 </div>
             </div>
         </div>
+        <!-- hero section background animation -->
+        <div class="area">
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
     </section>
+
+
+    <!-- about me section  -->
 
     <section id="about" class="about">
         <div class="container">
@@ -92,7 +112,7 @@
                 <button id="all" class="filter-btn" data-filter="all">All</button>
                 <button id="web" class="filter-btn" data-filter="web">Web</button>
                 <button id="mobile" class="filter-btn" data-filter="mobile">Mobile</button>
-                <button id="design" class="filter-btn" data-filter="design">Design</button>
+                
             </div>
             <div class="projects-grid">
 
@@ -207,6 +227,7 @@
     </section>
 
     <section id="contact" class="contact">
+        <canvas id="contact-bg"></canvas>
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
@@ -279,6 +300,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <!-- <script src="contact.js"></script> -->
 </body>
 
 </html>

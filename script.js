@@ -1,7 +1,23 @@
-document.querySelector('.hamburger').addEventListener('click', function () {
-    document.querySelector('.nav-links').classList.toggle('active');
-    this.classList.toggle('active');
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinkItems = document.querySelectorAll('.nav-links a');
+
+    // Toggle menu on hamburger click
+    hamburger.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    // Close menu on nav link click (mobile UX)
+    navLinkItems.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
 });
+
 
 const webProjects = [
     {
@@ -58,32 +74,8 @@ const androidProjects = [
     }
 ];
 
-const designProjects = [
-    {
-        title: "Mobile Banking App UI",
-        description: "A clean and modern UI design for a mobile banking application, focusing on user-friendly navigation and security.",
-        technologies: ["Figma", "UI/UX", "Design System"],
-        image: "/images/mobile-banking-ui.png",
-        link: "https://www.figma.com/file/yourfileid/banking-app-design", // Live Figma or Behance link
-        github: "", // Leave empty or null for design-only projects
-    },
-    {
-        title: "E-commerce App UI Kit",
-        description: "A design system and UI kit for an e-commerce app, including product pages, cart, and checkout flow.",
-        technologies: ["Adobe XD", "Design System", "Prototyping"],
-        image: "/images/ecommerce-ui-kit.png",
-        link: "https://www.behance.net/gallery/yourprojectid/Ecommerce-App-Design",
-        github: ""
-    },
-    {
-        title: "Portfolio Website Design",
-        description: "A responsive, modern portfolio website mockup tailored for developers and creatives, designed for easy customization.",
-        technologies: ["Figma", "Grid Systems", "Responsive Design"],
-        image: "/images/portfolio-design.png",
-        link: "https://www.figma.com/file/yourfileid/portfolio-website",
-        github: ""
-    }
-];
+
+
 grid = document.querySelector('.projects-grid')
 console.log(grid);
 
@@ -170,13 +162,9 @@ webbtn.forEach(element => {
         } else if (element.id === "mobile") {
             rendorProjects(androidProjects, element)
             
-        } else if (element.id === "design") {
-            rendorProjects(designProjects, element)
-            
-        }else if(element.id === "all"){
+        } else if(element.id === "all"){
             rendorProjects(webProjects, element)
             rendorProjects(androidProjects, element)
-            rendorProjects(designProjects, element)
         }else{
              grid.textContent = 'no projects available'
         }
@@ -186,23 +174,6 @@ webbtn.forEach(element => {
 document.getElementById("web").click();
 
 
-// function sendEmail() {
-//   const email = document.querySelector('.emailmsg').value 
-//   const subject = document.querySelector('.textmsg').value;
-//   const body = document.querySelector('.myext').value;
 
-//   const mailtoLink = `mailto:${"ashishhumane2003@gmail.com"}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-//   window.location.href = mailtoLink;
-
-//   // Prevent actual form submission
-//   return false;
-// }
-
-// form = document.querySelector('form')
-// form.addEventListener('submit' , (e) => {
-//     e.preventDefault()
-//     sendEmail()
-// })
 
 
