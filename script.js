@@ -21,18 +21,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const webProjects = [
     {
-        title: "E-commerce Platform",
-        description: "A simple frontend only web application where vendor can sell their farm product D2C.",
-        technologies: ["HTML", "CSS", "JavaScript"],
-        image: "/MyPortfolio/images/E-commerce_platfom.png", // path to your project thumbnail
-        link: "https://farm2cart.netlify.app/",
-        github: "https://github.com/ashishhumane/GroceryStore.git",
+        title: "StudyHub",
+        description: "A web application where student can make a list notes and can chat with study bot.",
+        technologies: ["ReactJS", "Tailwind CSS", "NodeJS","Express","JWT","MongoDB","API"],
+        image: "/MyPortfolio/images/StudyHub.png", // path to your project thumbnail
+        link: "https://studyhub-1-ofa0.onrender.com",
+        github: "https://github.com/ashishhumane/StudyHub.git",
     },
     {
-        title: "To-Do List",
-        description: "A responsive to-do list with local storage support. Users can add, edit, and delete tasks.",
-        technologies: ["React", "CSS", "LocalStorage"],
-        image: "images/todo-app.png",
+        title: "VendorMitra",
+        description: "A website to bridge the gap between street vendor and supplier so that they can buy supplies in bulk from trusted vendors.",
+        technologies: ["ReactJS", "Tailwind CSS", "NodeJS","Express","JWT","MongoDB"],
+        image: "/MyPortfolio/images/VendorMitra.png",
         link: "https://yourusername.github.io/todo-list/",
         github: "https://github.com/yourusername/todo-list",
     },
@@ -48,30 +48,7 @@ const webProjects = [
 
 
 const androidProjects = [
-    {
-        title: "Fitness Tracker App",
-        description: "An Android app to track daily fitness activities such as steps, calories burned, and water intake. Includes Google Fit integration.",
-        technologies: ["Kotlin", "XML", "Room DB", "Google Fit API"],
-        image: "/images/fitness-tracker.png", // path to your project thumbnail
-        link: "https://play.google.com/store/apps/details?id=yourappid", // demo or Play Store link
-        github: "https://github.com/yourusername/fitness-tracker-app"
-    },
-    {
-        title: "Expense Manager",
-        description: "Helps users manage their daily expenses with category-wise tracking, monthly reports, and a simple UI.",
-        technologies: ["Java", "XML", "SQLite", "MPAndroidChart"],
-        image: "/images/expense-manager.png",
-        link: "https://yourusername.github.io/expense-manager-demo/", // or APK download/demo
-        github: "https://github.com/yourusername/expense-manager"
-    },
-    {
-        title: "Weather App",
-        description: "Displays current weather conditions using OpenWeather API. Features location-based data and clean UI.",
-        technologies: ["Kotlin", "Retrofit", "MVVM", "LiveData"],
-        image: "/images/weather-app.png",
-        link: "https://yourusername.github.io/weather-app-demo/", // demo or APK link
-        github: "https://github.com/yourusername/weather-app"
-    }
+    
 ];
 
 
