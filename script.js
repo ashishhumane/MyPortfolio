@@ -33,8 +33,8 @@ const webProjects = [
         description: "A website to bridge the gap between street vendor and supplier so that they can buy supplies in bulk from trusted vendors.",
         technologies: ["ReactJS", "Tailwind CSS", "NodeJS","Express","JWT","MongoDB"],
         image: "/MyPortfolio/images/VendorMitra.png",
-        link: "https://yourusername.github.io/todo-list/",
-        github: "https://github.com/yourusername/todo-list",
+        link: "https://vendormitra-1.onrender.com",
+        github: "https://github.com/ashishhumane/VendorMitra.git",
     },
     {
         title: "Voice Assistant",
